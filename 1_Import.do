@@ -26,6 +26,8 @@ if `r(N)'>0 {
 	list title firstpage lastpage page pui if mi(oral)
 }
 
+label define oral_ 0 "Poster" 1 "Oral"
+label value oral oral_
 end
 
 
@@ -110,3 +112,4 @@ order id publicationyear page oral title abstract
 
 save 2_Data/Abstracts.dta, replace
 export excel using 2_Data/Abstracts.xlsx, firstrow(variables) nolabel replace
+export delimited using "2_Data/Abstracts.csv", delimiter(tab) replace
