@@ -1,7 +1,8 @@
 ***** 1_Import.do *****
 capture: mkdir 1_Input
 capture: mkdir 2_Data
-capture: mkdir 3_Output
+capture: mkdir 3_Models
+capture: mkdir 4_Output
 
 *** Import embase abstracts
 import delimited "1_Input/EASD_2009-2015.csv", clear case(lower) varnames(1) stringcols(_all)
