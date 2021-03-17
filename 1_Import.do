@@ -104,6 +104,12 @@ assert strpos(abstract, upper("Background and aims:")) & strpos(abstract, upper(
 drop repl_*
 
 
+*** Remove semicolons
+ds, has(type string)
+foreach var in `r(varlist)' {
+	di "`var'"
+	replace `var' = subinstr(`var', ";", ",", .)
+}
 
 *** Export
 sort publicationyear page
@@ -112,4 +118,4 @@ order id publicationyear page oral title abstract
 
 save 2_Data/Abstracts.dta, replace
 export excel using 2_Data/Abstracts.xlsx, firstrow(variables) nolabel replace
-export delimited using "2_Data/Abstracts.csv", delimiter(tab) replace
+export delimited using "2_Data/Abstracts.csv", delimiter(";") replace
